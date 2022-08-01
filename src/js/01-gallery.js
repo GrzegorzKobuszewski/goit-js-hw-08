@@ -1,5 +1,4 @@
 import { galleryItems } from "./gallery-items.js";
-
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
@@ -27,6 +26,6 @@ galleryItems.forEach(e => {
 
 gallery.append(...newGalleryItems);
 
-new SimpleLightbox('.gallery a', {
-  captionDelay: 250,
-});
+new SimpleLightbox(".gallery a", { captionDelay: 250, });
+
+console.log(galleryItems);
