@@ -1,5 +1,8 @@
 import { galleryItems } from "./gallery-items.js";
 
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
 const gallery = document.querySelector(".gallery");
 const newGalleryItems = [];
 
@@ -24,21 +27,6 @@ galleryItems.forEach(e => {
 
 gallery.append(...newGalleryItems);
 
-gallery.addEventListener("click", e => {
-    e.preventDefault();
-    if (e.target.nodeName !== "IMG") return;
-    const imageDataSource = e.target.getAttribute("data-source");
-
-    const instance = basicLightbox.create(
-        `<img src="${imageDataSource}" width="800" height="600">`,
-        {
-            onShow: (instance) => {
-                document.addEventListener("keydown", (e) => {
-                    if (e.key === "Escape") instance.close();
-                });
-            }
-        });
-    
-    instance.show();
-
+new SimpleLightbox('.gallery a', {
+  captionDelay: 250,
 });
