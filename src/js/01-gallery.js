@@ -6,22 +6,19 @@ const gallery = document.querySelector(".gallery");
 const newGalleryItems = [];
 
 galleryItems.forEach(e => {
-    const galleryItem = document.createElement("div");
     const galleryItemLink = document.createElement("a");
     const galleryItemImage = document.createElement("img");
     
-    galleryItem.className = "gallery__item";
     galleryItemLink.className = "gallery__link";
     galleryItemImage.className = "gallery__image";
 
     galleryItemLink.href = e.original;
     galleryItemImage.src = e.preview;
-    galleryItemImage.setAttribute("data-source", e.original);
+    galleryItemImage.setAttribute("title", e.description);
     galleryItemImage.alt = e.description;
     
-    galleryItem.append(galleryItemLink);
     galleryItemLink.append(galleryItemImage);
-    newGalleryItems.push(galleryItem);
+    newGalleryItems.push(galleryItemLink);
 });
 
 gallery.append(...newGalleryItems);
